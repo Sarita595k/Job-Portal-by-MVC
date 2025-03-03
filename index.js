@@ -1,7 +1,7 @@
 const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
-const { fetchMainPage, allJobsAre } = require('./src/mvc/controller/controller')
+const { fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeekrer } = require('./src/mvc/controller/controller')
 const app = express()
 
 
@@ -26,6 +26,16 @@ app.get('/', fetchMainPage)
 // fetching jobs page
 app.get('/allJobs', allJobsAre)
 
+
+// to fetch job details 
+app.get('/jobDetails', viewJobDetails)
+
+// to fetch apply now page
+app.get('/applyNow', applyForJob)
+
+
+// post registration of jobSeeker
+app.post('/jobSeekerRegister', postRegistrationOfJobSeekrer)
 app.listen(3000, () => {
     console.log("server is running at port 3000")
 })
