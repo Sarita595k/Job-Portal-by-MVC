@@ -8,25 +8,34 @@
 </head>
 
 <body>
-    <form action="/jobSeekerRegister" method="POST">
-        <label for="fname">First Name</label>
-        <input type="text" name="firstName" id="fname"><br>
-        <label for="lname">Last Name</label>
-        <input type="text" name="LastName" id="lname"><br>
-        <label for="emailId">Email</label>
-        <input type="email" name="email" id="emailId"><br>
-        <label for="passwordIs">password</label>
-        <input type="password" name="password" id="passwordIs"><br>
-        <label for="qualificationIs">Qualification</label>
-        <input type="text" name="qualification" id="qualificationIs"><br>
-        <label for="passout">passout year</label>
-        <input type="text" name="passoutYear" id="passout"><br>
-        <label for="contact">Contact Number</label>
-        <input type="tel" name="contactNumber" id="contact"><br>
-        <label for="uploadResume">Upload your resume</label>
-        <input type="file" name="resume" id="uploadResume">
-        <button>Submit</button>
-    </form>
+    <% if(errors && errors.length>0){%>
+        <ul>
+            <% errors.forEach(error=>{%>
+                <li>
+                    <%=error.msg%>
+                </li>
+                <%})%>
+        </ul>
+        <%}%>
+            <form action="/jobSeekerRegister" method="POST" enctype="multipart/form-data">
+                <label for="fname">First Name</label>
+                <input type="text" name="firstName" id="fname"><br>
+                <label for="lname">Last Name</label>
+                <input type="text" name="lastName" id="lname"><br>
+                <label for="emailId">Email</label>
+                <input type="email" name="email" id="emailId"><br>
+                <label for="passwordIs">password</label>
+                <input type="password" name="password" id="passwordIs"><br>
+                <label for="qualificationIs">Qualification</label>
+                <input type="text" name="qualification" id="qualificationIs"><br>
+                <label for="passout">passout year</label>
+                <input type="text" name="passoutYear" id="passout"><br>
+                <label for="contact">Contact Number</label>
+                <input type="tel" name="contactNumber" id="contact"><br>
+                <label for="uploadResume">Upload your resume</label>
+                <input type="file" name="resume" id="uploadResume">
+                <button>Submit</button>
+            </form>
 </body>
 
 </html>

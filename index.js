@@ -1,7 +1,8 @@
 const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
-const { fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeekrer } = require('./src/mvc/controller/controller')
+const { fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker } = require('./src/mvc/controller/controller')
+const { validateData } = require('./src/mvc/middleware/validator')
 const app = express()
 
 
@@ -35,7 +36,7 @@ app.get('/applyNow', applyForJob)
 
 
 // post registration of jobSeeker
-app.post('/jobSeekerRegister', postRegistrationOfJobSeekrer)
+app.post('/jobSeekerRegister', validateData, postRegistrationOfJobSeeker)
 app.listen(3000, () => {
     console.log("server is running at port 3000")
 })
