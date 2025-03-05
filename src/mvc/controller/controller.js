@@ -29,9 +29,14 @@ const postRegistrationOfJobSeeker = (req, res) => {
     if (!errors.isEmpty()) {
         return res.status(401).render('jobSeekerRegistration', { errors: errors.array() })
     }
+    if (!req.file) {
+        return res.status(401).render('jobSeekerRegistration', { errors: [{ message: "File upload is required" }] })
+    }
+    const resume = req.file
+    console.log(resume)
     const response = addJobSeekerInList(data)
-    return res.json({ message: "Successfully applied for the job" })
     console.log(response)
+    return res.json({ msg: "Successfully applied for the job" })
 }
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker

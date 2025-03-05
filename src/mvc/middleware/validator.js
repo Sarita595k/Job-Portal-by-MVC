@@ -5,12 +5,16 @@ const validateData = [
     body('email').isEmail().withMessage("enter a valid email address"),
     body('password').trim().isLength({ min: 6 }).withMessage("password should contains atleast 6 characters"),
     body('passoutYear').trim().isInt({ min: 1990, max: 2025 }).withMessage("Passout Year must be in number"),
+    body('qualification').trim().isAlphanumeric().withMessage("enter valid qualification"),
     body('contactNumber').trim().isNumeric().withMessage("Contact Number must contain numbers")
-        .isLength({ min: 10, max: 10 }).withMessage('Contact Number should contain atLeast 10 numbers'),
+        .isLength({ min: 10, max: 10 }).withMessage(`   Contact Number should contain atLeast 10 numbers.Don't include 0 or +91`),
     (req, res, next) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.status(401).render('jobSeekerRegistration', { errors: errors.array() })
+        }
+        if (!req.file) {
+            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "File upload is required" }] })
         }
         next()
     }
