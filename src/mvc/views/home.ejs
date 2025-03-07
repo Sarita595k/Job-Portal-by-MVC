@@ -21,19 +21,78 @@
 </head>
 
 <body>
-
-    <%- include('partials/navbar')%>
-        <div id="main-hero-container">
-            <h1 class="jobSeeker">Hello,Avsar</h1>
-            <button><a href="/allJobs">I'm a jobSeeker</a></button>
-            <button><a href="#"></a>I'm a Recruiter</button>
-
+    <div id="main-container-section">
+        <div id="iframe-container">
+            <iframe
+                src="https://www.youtube.com/embed/JsNvHJsufhI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=JsNvHJsufhI&mute=1"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+        <div id="main-hero-container">
+            <%- include('partials/navbar')%>
+                <div id="main-heading">
+                    <h1 class="jobSeeker">got talent?</h1><br>
+                    <h1>meet opportunity</h1>
+                    <p>Find Jobs, Employment & Career Opportunities. Some of the companies we've helped recruit
+                        excellent applicants over the years.</p>
+                </div>
+
+                <button id="jobSeekerBtn"><a href="/allJobs">I'm a jobSeeker</a></button>
+                <button id="recruiterBtn"><a href="#">I'm a Recruiter</a></button>
+
+        </div>
+    </div>
+
+    <div id="howItWorks-section">
+        <div id="works-heading">
+            <h1>how it's works?</h1>
+            <p>Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over
+                30000+ companies worldwide.</p>
+        </div>
+        <div id="stepsToHire">
+            <div id="createAccount" class="steps">
+                <i class="fa-solid fa-laptop"></i>
+                <h1>create account</h1>
+                <p>The phrasal sequence of the is now so that many campaign and benefit</p>
+            </div>
+            <div id="completeYourProfile" class="steps">
+                <i class="fa-solid fa-clock"></i>
+                <h1>complete your profile</h1>
+                <p>The phrasal sequence of the is now so that many campaign and benefit</p>
+            </div>
+            <div id="applyJob" class="steps">
+                <i class="fa-solid fa-camera"></i>
+                <h1>apply job or hire</h1>
+                <p>The phrasal sequence of the is now so that many campaign and benefit</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="candidate-companies-section">
+        <div id="both-section-container">
+            <div id="jobSeeker">
+                <h1>register for jobseeker</h1>
+                <ul class="lists-points">
+                    <li> It has survived not only five centuries</li>
+                    <li> There are many variations of passages</li>
+                </ul>
+                <button class="jobSeekerBtn">apply now</button>
+            </div>
+            <div id="recruiter">
+                <h1>register for recruiter</h1>
+                <ul class="lists-points">
+                    <li>Many desktop publishing packages</li>
+                    <li>Contrary to popular belief</li>
+                    <li>It is a long established fact that a reader</li>
+                </ul>
+                <button class="jobSeekerBtn">post jobs</button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
