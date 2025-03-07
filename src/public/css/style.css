@@ -91,12 +91,13 @@ a.nav-link:hover {
 #recruiterBtn a {
     text-decoration: none;
     color: #FFFFFF80;
+    transition: 1s all ease-in-out;
 }
 
 #jobSeekerBtn:hover,
 #recruiterBtn:hover {
     background-color: #064e3bcc;
-    transition: all .3s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 #jobSeekerBtn a:hover,
@@ -172,15 +173,80 @@ a.nav-link:hover {
 }
 
 #candidate-companies-section {
-    position: relative;
     background-image: url('../images/background-image-job-post.jpg');
     background-size: cover;
+    background-position: -10%;
     background-repeat: no-repeat;
-
+    margin-bottom: 10%;
 }
 
 #both-section-container {
+    width: 100%;
+    padding: 7%;
     background-color: #0f172a66;
+    display: flex;
+    gap: 5%;
+    /* justify-content: space-between; */
+}
+
+#jobSeeker,
+#recruiter {
+    width: 90%;
+}
+
+#jobSeeker h1,
+#recruiter h1 {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    text-transform: capitalize;
+    word-spacing: 1.2;
+}
+
+.lists-points {
+    list-style-type: none;
+}
+
+.lists-points li {
+    margin-left: -7%;
+    color: #FFFFFF80;
+    line-height: 1.7rem;
+}
+
+.lists-points li::before {
+    font-size: .5rem;
+    content: '\f00c';
+    border: 1px solid #FFFFFF;
+    padding: .13rem .2rem;
+    border-radius: 50%;
+    font-family: 'FontAwesome';
+    color: #FFFFFF;
+    margin-right: 3%;
+}
+
+.jobSeekerBtn {
+    width: 36%;
+    border: none;
+    background-color: #059669;
+    padding: .3rem;
+    text-transform: capitalize;
+    border-radius: 1.7rem;
+    transition: all 1s ease-in-out;
+}
+
+.jobSeekerBtn a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.jobSeekerBtn:hover {
+    background-color: #0a2019;
+}
+
+.jobSeekerBtn a:hover {
+    color: #FFFFFF;
 }
 
 /* cards styling */
