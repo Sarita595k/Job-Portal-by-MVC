@@ -1,0 +1,34 @@
+<div id="card-container">
+    <%jobsResponse.forEach(jobs=>{%>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-icons-container">
+                    <img class="card-logo" src="<%=jobs.imgSrc%>" alt="">
+                    <div class="icons">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+                </div>
+                <h5 class="card-title">
+                    <%=jobs.companyName%>
+                </h5>
+                <h6 class="card-subtitle">
+                    <%=jobs.designation%>
+                </h6>
+                <p class="card-text">
+                    <%=jobs.package%>
+                </p>
+                <ul class="card-text-ul">
+
+                    <%jobs.language.forEach(language=>{%>
+                        <li>
+                            <%=language%>
+                        </li>
+                        <%})%>
+                </ul>
+                <a href="/jobDetails" class="card-link">view details</a>
+                <a href="/applyNow" class="card-link">apply now</a>
+            </div>
+        </div>
+        <% })%>
+</div>

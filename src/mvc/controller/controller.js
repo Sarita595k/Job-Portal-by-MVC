@@ -3,7 +3,8 @@ const { addJobSeekerInList } = require("../model/registeredJobSeeker")
 const { validationResult } = require('express-validator')
 
 const fetchMainPage = (req, res) => {
-    res.render('home')
+    const getAllJobsList = fetchAllJobs()
+    res.render('home', { jobsResponse: getAllJobsList })
 }
 
 const allJobsAre = (req, res) => {

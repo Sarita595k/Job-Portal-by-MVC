@@ -37,7 +37,7 @@
                         excellent applicants over the years.</p>
                 </div>
 
-                <button id="jobSeekerBtn"><a href="/allJobs">I'm a jobSeeker</a></button>
+                <button class="jobSeekerBtnHeader"><a href="/allJobs">I'm a jobSeeker</a></button>
                 <button id="recruiterBtn"><a href="#">I'm a Recruiter</a></button>
 
         </div>
@@ -89,10 +89,44 @@
             </div>
         </div>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <!-- popular jobs section  -->
+    <div id="popular-job-section">
+        <div class="popular-jobs">
+            <h1>popular jobs</h1>
+            <p>Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over
+                30000+ companies worldwide.</p>
+        </div>
+        <div class="popularJobs"><%- include('partials/alljobs')%>
+        </div>
+        <div class="seeJobs">
+            <a href="/allJobs">see more jobs</a><i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+    <!-- section for millions of job content -->
+    <div id="millions-job-section">
+        <div class="girls-pic">
+            <img class="girl-image1" src="/images/girls-big-image.jpg" alt="girls image one">
+            <img class="girl-image2" src="/images/girls-small.jpg" alt="girls image two">
+        </div>
+        <div class="millions-heading">
+            <h1>millions of jobs <br>
+                Find the one that's right for you.</h1>
+            <p>Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over
+                30000+ companies worldwide.</p>
+            <ul class="millions-list">
+                <li>digital marketing solution for tomorrow.</li>
+                <li>our talented & experienced marketing agencies.</li>
+                <li>create your own skin </li>
+            </ul>
+            <button class="jobSeekerBtnHeader" id="contact-btn"><a href="#"><i class="fa-solid fa-envelope"></i>contact
+                    us</a></button>
+        </div>
+    </div>
+    <%- include('partials/footer')%>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
