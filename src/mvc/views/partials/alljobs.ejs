@@ -32,3 +32,20 @@
         </div>
         <% })%>
 </div>
+<script>
+    let heartIcon = document.querySelectorAll('.fa-heart')
+    heartIcon.forEach(icons => {
+        icons.addEventListener("click", () => {
+            icons.style.color = icons.style.color === 'red' ? '' : 'red'
+        })
+    })
+    let bookmarkIcon = document.querySelectorAll('.fa-bookmark')
+    bookmarkIcon.forEach(icons => {
+        icons.addEventListener("click", () => {
+            // let currentColor = window.getComputedStyle(icons).color;
+            // let changeColor = '#161C2D'
+            icons.style.color = (icons.style.color === 'purple') ? '' : 'purple'
+        })
+    })
+
+</script>

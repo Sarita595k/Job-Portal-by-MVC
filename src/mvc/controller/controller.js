@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator')
 
 const fetchMainPage = (req, res) => {
     const getAllJobsList = fetchAllJobs()
-    res.render('home', { jobsResponse: getAllJobsList })
+    res.render('home', { jobsResponse: getAllJobsList.slice(0, 6) })
 }
 
 const allJobsAre = (req, res) => {

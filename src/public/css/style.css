@@ -30,6 +30,8 @@ body {
 }
 
 .navbar {
+    margin-bottom: 10%;
+    background-color: #046143;
     color: #FFFFFF80;
     /* background-color: #ffffff; */
 }
@@ -295,7 +297,7 @@ a.nav-link:hover {
 
 /* millions of jobs section  */
 #millions-job-section {
-    margin: 0 5% 5%;
+    margin: 0 5% 15%;
     display: flex;
     align-items: center;
     gap: 15%;
@@ -475,4 +477,12 @@ p.card-text {
 .card-link:hover {
     background-color: transparent;
     color: #046143;
+}
+
+#footer {
+    text-transform: capitalize;
+    text-align: center;
+    padding: 1%;
+    background-color: #161C2D;
+    color: #FFFFFF;
 }
