@@ -30,7 +30,6 @@ app.get('/', fetchMainPage)
 // fetching jobs page
 app.get('/allJobs', allJobsAre)
 
-
 // to fetch job details 
 app.get('/jobDetails', viewJobDetails)
 
