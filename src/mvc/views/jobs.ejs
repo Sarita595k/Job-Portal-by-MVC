@@ -26,6 +26,7 @@
             <%jobsResponse.forEach(jobs=>{%>
                 <div class="card">
                     <div class="card-body">
+                        <img src="<%=jobs.imgSrc%>" height="50px" width="70px" alt="">
                         <h5 class="card-title">
                             <%=jobs.companyName%>
                         </h5>
@@ -35,8 +36,10 @@
                         <p class="card-text">
                             <%=jobs.package%>
                         </p>
+                        <p class="card-text">
+                            <%=jobs.description%>
+                        </p>
                         <ul class="card-text-ul">
-
                             <%jobs.language.forEach(language=>{%>
                                 <li>
                                     <%=language%>
