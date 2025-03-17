@@ -99,12 +99,12 @@ const jobsList = [{
 const fetchAllJobs = () => {
     return jobsList
 }
-const allJobs = () => {
-    const jobsId = jobsList.length > 0 ? Math.max(...jobsList.map(jobs => jobs.id)) + 1 : 1
-    const newJobsAre = [...jobsList, jobsId]
-    jobsList.push(newJobsAre)
-    return newJobsAre
-}
+// const allJobs = () => {
+//     const jobsId = jobsList.length > 0 ? Math.max(...jobsList.map(jobs => jobs.id)) + 1 : 1
+//     const newJobsAre = [...jobsList, jobsId]
+//     jobsList.push(newJobsAre)
+//     return newJobsAre
+// }
 module.exports = {
     fetchAllJobs
 }

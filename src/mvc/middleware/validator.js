@@ -8,13 +8,15 @@ const validateData = [
     body('qualification').trim().isAlphanumeric().withMessage("enter valid qualification"),
     body('contactNumber').trim().isNumeric().withMessage("Contact Number must contain numbers")
         .isLength({ min: 10, max: 10 }).withMessage(`   Contact Number should contain atLeast 10 numbers.Don't include 0 or +91`),
+    body('designation').trim().notEmpty().withMessage("designation is important"),
+    body("coverLetter").trim().isLength({ min: 5, max: 400 }).withMessage('cover letter should contain atleast 5 character but not more than 400'),
     (req, res, next) => {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.status(401).render('jobSeekerRegistration', { errors: errors.array() })
         }
         if (!req.file) {
-            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "File upload is required" }] })
+            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "Invalid file type. Only PDF files are allowed." }] })
         }
         next()
     }

@@ -21,11 +21,12 @@ const fileFilter = (req, file, cb) => {
     if (allowedFileType.includes(file.mimetype)) {
         cb(null, true)
     } else {
-        cb(new Error("invalid file type include only .pdf file"), false)
+        req.fileValidationError = "Invalid file type. Only PDF files are allowed.";
+        cb(null, false)
     }
 }
 
-const upload = multer({ storage: storage, limits: { fileSize: 2 * 1024 * 1024 }, fileFilter: fileFilter })
+const upload = multer({ storage: storage, limits: { fileSize: 1 * 1024 * 1024 }, fileFilter: fileFilter })
 
 module.exports = {
     upload

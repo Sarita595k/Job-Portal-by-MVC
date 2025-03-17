@@ -34,10 +34,10 @@ const postRegistrationOfJobSeeker = (req, res) => {
         return res.status(401).render('jobSeekerRegistration', { errors: [{ message: "File upload is required" }] })
     }
     const resume = req.file
-    console.log(resume)
+    // console.log(resume)
     const response = addJobSeekerInList(data)
-    console.log(response)
-    return res.json({ msg: "Successfully applied for the job" })
+    // console.log(response)
+    return res.render('applicationSubmitted')
 }
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker

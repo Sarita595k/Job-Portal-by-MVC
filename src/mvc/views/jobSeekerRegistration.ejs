@@ -22,91 +22,92 @@
 <body>
     <div class="reg-page-bg-container">
         <%- include('partials/navbar')%>
-            <% if(errors && errors.length>0){%>
-                <ul>
-                    <% errors.forEach(error=>{%>
-                        <li>
-                            <%=error.msg%>
-                        </li>
-                        <%})%>
-                </ul>
-                <%}%>
-                    <div class="form-container"></div>
-                    <form class="reg-page-form" action="/jobSeekerRegister" method="POST" enctype="multipart/form-data">
-                        <h1 class="form-heading">personal details</h1>
-                        <div class="name" id="name-container">
-                            <div class="label-container">
-                                <label for="fname">First Name</label>
-                                <input type="text" name="firstName" id="fname">
-                            </div>
-                            <div class="label-container">
-                                <label for="lname">Last Name</label>
-                                <input type="text" name="lastName" id="lname">
-                            </div>
-                        </div>
+            <div class="errors-list">
+                <% if(errors && errors.length>0){%>
+                    <ul>
+                        <% errors.forEach(error=>{%>
+                            <li>
+                                <%=error.msg%>
+                            </li>
+                            <%})%>
+                    </ul>
+                    <%}%>
+            </div>
+            <div class="form-container"></div>
+            <form class="reg-page-form" action="/jobSeekerRegister" method="POST" enctype="multipart/form-data">
+                <h1 class="form-heading">personal details</h1>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="fname">First Name</label>
+                        <input type="text" name="firstName" id="fname">
+                    </div>
+                    <div class="label-container">
+                        <label for="lname">Last Name</label>
+                        <input type="text" name="lastName" id="lname">
+                    </div>
+                </div>
 
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="emailId">Email</label>
-                                <input type="email" name="email" id="emailId">
-                            </div>
-                            <div class="label-container">
-                                <label for="passwordIs">password</label>
-                                <input type="password" name="password" id="passwordIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="qualificationIs">Qualification</label>
-                                <input type="text" name="qualification" id="qualificationIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="qualificationIs">Qualification</label>
-                                <input type="text" name="qualification" id="qualificationIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="qualificationIs">Qualification</label>
-                                <input type="text" name="qualification" id="qualificationIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="qualificationIs">Qualification</label>
-                                <input type="text" name="qualification" id="qualificationIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="qualificationIs">Qualification</label>
-                                <input type="text" name="qualification" id="qualificationIs">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="passout">passout year</label>
-                                <input type="text" name="passoutYear" id="passout">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container">
-                                <label for="contact">Contact Number</label>
-                                <input type="tel" name="contactNumber" id="contact">
-                            </div>
-                        </div>
-                        <div class="name">
-                            <div class="label-container upload-resume">
-                                <label for="uploadResume">Upload your resume</label>
-                                <input type="file" name="resume" id="uploadResume">
-                            </div>
-                        </div>
-                        <button class="submit-reg-form">Submit</button>
-                    </form>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="emailId">Email</label>
+                        <input type="email" name="email" id="emailId">
+                    </div>
+                    <div class="label-container">
+                        <label for="passwordIs">password</label>
+                        <input type="password" name="password" id="passwordIs">
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="qualificationIs">Qualification</label>
+                        <input type="text" name="qualification" id="qualificationIs">
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="passout">passout year</label>
+                        <input type="text" name="passoutYear" id="passout">
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="contact">Contact Number</label>
+                        <input type="tel" name="contactNumber" id="contact">
+                    </div>
+                </div>
+                <h1 class="form-heading" style="margin-top: 3%;">work experience</h1>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="designationIs">designation</label>
+                        <input type="text" name="designation" id="designationIs">
+                    </div>
+                    <div class="label-container">
+                        <label for="companyIs">company Name</label>
+                        <input type="text" name="companyName" id="companyIs">
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="detailsIs">details</label>
+                        <input type="text" name="details" id="detailsIs">
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container">
+                        <label for="coverLetterIs">cover Letter</label>
+                        <textarea name="coverLetter" id="coverLetterIs" rows="5" cols="50"
+                            placeholder="Write your cover letter here"></textarea>
+                    </div>
+                </div>
+                <div class="name">
+                    <div class="label-container upload-resume">
+                        <label for="uploadResume">Upload your resume</label>
+                        <input type="file" name="resume" id="uploadResume">
+                    </div>
+                </div>
+                <button class="submit-reg-form">Submit</button>
+            </form>
     </div>
-
 </body>
 
 </html>

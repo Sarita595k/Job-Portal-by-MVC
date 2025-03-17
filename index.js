@@ -37,12 +37,17 @@ app.get('/jobDetails', viewJobDetails)
 app.get('/applyNow', applyForJob)
 
 // post registration of jobSeeker
-app.post('/jobSeekerRegister', upload.single('resume'), validateData, postRegistrationOfJobSeeker)
+app.post('/jobSeekerRegister', upload.single('resume'), validateData, ((req, res, next) => {
+    if (req.fileValidationError) {
+        return res.render('jobSeekerRegister', { errors: [{ msg: req.fileValidationError }] })
+    }
+    next()
+}), postRegistrationOfJobSeeker)
 
 app.use((err, req, res, next) => {
     if (err instanceof multer.MulterError) {
         if (err.code === '"LIMIT_FILE_SIZE"') {
-            return res.status(401).json("file size exceeds 2MB")
+            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "file size exceeds 2MB" }] })
         }
         if (!req.file) {
             return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "File upload is required" }] })

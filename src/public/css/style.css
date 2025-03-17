@@ -495,6 +495,30 @@ p.card-text {
     position: fixed;
 }
 
+.errors-list {
+    width: 30%;
+    background-color: #0596690D;
+    z-index: 300;
+    top: 7rem;
+    position: absolute;
+    color: #046143;
+    font-size: .8rem;
+}
+
+.errors-list ul {
+    list-style-type: none;
+}
+
+.errors-list ul li {
+    text-transform: capitalize;
+}
+
+.errors-list ul li::before {
+    content: '\f119';
+    font-family: 'FontAwesome';
+    color: red;
+}
+
 .form-container {
     position: absolute;
     width: 100%;
@@ -582,4 +606,30 @@ p.card-text {
     border: 1px solid #046143;
     color: #010101;
     background-color: #FFFFFF;
+}
+
+/* application submitted page styling  */
+.application {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.application i {
+    font-size: 3rem;
+    color: #059669;
+}
+
+.application h1,
+.application p {
+    text-transform: lowercase;
+    color: #046143;
+}
+
+.application h1::first-letter,
+.application p::first-letter {
+    text-transform: uppercase;
 }
