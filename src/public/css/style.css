@@ -395,7 +395,14 @@ a.nav-link:hover {
 
 .card {
     width: 25%;
-    height: 70vh;
+    height: 60vh;
+    text-transform: capitalize;
+    border: 1px solid #059669 !important;
+}
+
+.job-card {
+    width: 25%;
+    height: 52vh;
     text-transform: capitalize;
     border: 1px solid #059669 !important;
 }

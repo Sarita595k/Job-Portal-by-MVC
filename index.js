@@ -2,7 +2,7 @@ const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
 const multer = require("multer")
-const { fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker } = require('./src/mvc/controller/controller')
+const { fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker, jobseeker, getRecruiterPage, getRecruiterLogin } = require('./src/mvc/controller/controller')
 const { validateData } = require('./src/mvc/middleware/validator')
 const { upload } = require('./src/mvc/middleware/fileUpload')
 const app = express()
@@ -44,6 +44,8 @@ app.post('/jobSeekerRegister', upload.single('resume'), validateData, ((req, res
     next()
 }), postRegistrationOfJobSeeker)
 
+
+app.get('/jobseekerList', jobseeker)
 app.use((err, req, res, next) => {
     if (err instanceof multer.MulterError) {
         if (err.code === '"LIMIT_FILE_SIZE"') {
@@ -56,6 +58,11 @@ app.use((err, req, res, next) => {
     next(err)
 })
 
+
+// recruiter page 
+app.get('/recruiterRegister', getRecruiterPage)
+
+app.get('/recruiterLogin', getRecruiterLogin)
 
 app.listen(3000, () => {
     console.log("server is running at port 3000")

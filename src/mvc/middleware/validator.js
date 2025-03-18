@@ -16,7 +16,7 @@ const validateData = [
             return res.status(401).render('jobSeekerRegistration', { errors: errors.array() })
         }
         if (!req.file) {
-            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "Invalid file type. Only PDF files are allowed." }] })
+            return res.status(401).render('jobSeekerRegistration', { errors: [{ msg: "File upload is required." }] })
         }
         next()
     }

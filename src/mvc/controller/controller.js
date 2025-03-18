@@ -1,5 +1,5 @@
 const { fetchAllJobs } = require("../model/model")
-const { addJobSeekerInList } = require("../model/registeredJobSeeker")
+const { getJobSeeker, addJobSeekerInList } = require("../model/registeredJobSeeker")
 const { validationResult } = require('express-validator')
 
 const fetchMainPage = (req, res) => {
@@ -12,7 +12,10 @@ const allJobsAre = (req, res) => {
     res.render('jobs', { jobsResponse: getAllJobsList })
 }
 
-
+const jobseeker = (req, res) => {
+    let response = getJobSeeker()
+    res.json(response)
+}
 // to view job details
 const viewJobDetails = (req, res) => {
     res.render('jobDetails')
@@ -39,6 +42,17 @@ const postRegistrationOfJobSeeker = (req, res) => {
     // console.log(response)
     return res.render('applicationSubmitted')
 }
+
+// for recruiter page controller is 
+const getRecruiterPage = (req, res) => {
+    res.render('recruiterRegister')
+}
+
+const getRecruiterLogin = (req, res) => {
+    res.render('recruiterLogin')
+}
+
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker
+    , jobseeker, getRecruiterPage, getRecruiterLogin
 }

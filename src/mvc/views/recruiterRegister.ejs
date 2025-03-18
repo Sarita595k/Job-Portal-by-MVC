@@ -4,14 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- stylesheet added  -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- fontawesome icon link -->
+    <script src="https://kit.fontawesome.com/c058ee3c3f.js" crossorigin="anonymous"></script>
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>Recruiter Registration</title>
 </head>
 
 <body>
+    <div class="reg-page-bg-container">
+        <%- include('partials/navbar')%>
+            <!-- <form action="./recruiterRegister.ejs" method="post" enctype="multipart/form-data"> -->
+            <div class="form-container"></div>
+            <form class="reg-page-form" action="/recruiterRegister" method="post">
+                <h1 class="form-heading">Recruiter Registration</h1>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="fname">Full Name:</label>
+                        <input type="text" name="fullname" id="fname">
+                    </div>
+                </div>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="cname">Company Name:</label>
+                        <input type="text" name="company" id="cname">
+                    </div>
+                </div>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="cwebsite">Company Website:</label>
+                        <input type="url" name="website" id="cwebsite">
+                    </div>
+                </div>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="workemail">Work Email:</label>
+                        <input type="email" name="email" id="workemail">
+                    </div>
+                </div>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="phNumber">Phone Number:</label>
+                        <input type="tel" name="phone" id="phNumber">
+                    </div>
+                </div>
+                <div class="name" id="name-container">
+                    <div class="label-container">
+                        <label for="passwordIs">Password:</label>
+                        <input type="password" name="password" id="passwordIs">
+                    </div>
+                </div>
+                <p>already have an account?click <a href="recruiterLogin">here</a></p>
+                <button class="submit-reg-form" type="submit">Register</button>
+            </form>
 
-    <form action="./recruiterRegister.ejs" method="post" enctype="multipart/form-data">
-        <label for="fname">first name</label>
-    </form>
+            </form>
 </body>
 
 </html>
