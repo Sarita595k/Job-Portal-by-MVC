@@ -1,6 +1,8 @@
 const { fetchAllJobs } = require("../model/model")
 const { getJobSeeker, addJobSeekerInList } = require("../model/registeredJobSeeker")
+const { getRecruiterList, addRecruiters, recruiterExist } = require('../model/recruiterModel')
 const { validationResult } = require('express-validator')
+const e = require("express")
 
 const fetchMainPage = (req, res) => {
     const getAllJobsList = fetchAllJobs()
@@ -52,7 +54,29 @@ const getRecruiterLogin = (req, res) => {
     res.render('recruiterLogin')
 }
 
+// for getting details of all the recruiters 
+const getRecruiterDetails = (req, res) => {
+    const data = getRecruiterList()
+    res.json(data)
+}
+const postRecruiterRegister = (req, res) => {
+    const response = req.body
+    const data = addRecruiters(response)
+    res.json({ msg: "thank you for registering" })
+}
+
+const checkRecruiterExist = (req, res) => {
+    const { email, password } = req.body
+    console.log({ email, password })
+    const response = recruiterExist({ email, password })
+    if (response) {
+        res.json("you are logged in")
+    } else {
+        res.json('try again')
+    }
+}
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker
-    , jobseeker, getRecruiterPage, getRecruiterLogin
+    , jobseeker, getRecruiterPage, getRecruiterLogin,
+    getRecruiterDetails, postRecruiterRegister, checkRecruiterExist
 }
