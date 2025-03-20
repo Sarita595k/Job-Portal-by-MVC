@@ -5,7 +5,7 @@ const multer = require("multer")
 const { fetchMainPage, allJobsAre, viewJobDetails,
     applyForJob, postRegistrationOfJobSeeker, jobseeker,
     getRecruiterPage, getRecruiterLogin, getRecruiterDetails,
-    postRecruiterRegister, checkRecruiterExist }
+    postRecruiterRegister, checkRecruiterExist, viewJob }
     = require('./src/mvc/controller/controller')
 const { validateData } = require('./src/mvc/middleware/validator')
 const { upload } = require('./src/mvc/middleware/fileUpload')
@@ -37,6 +37,7 @@ app.get('/allJobs', allJobsAre)
 // to fetch job details 
 app.get('/jobDetails', viewJobDetails)
 
+app.get('/viewJob/:id', viewJob)
 // to fetch apply now page
 app.get('/applyNow', applyForJob)
 

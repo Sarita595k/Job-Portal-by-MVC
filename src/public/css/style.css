@@ -640,3 +640,106 @@ p.card-text {
 .application p::first-letter {
     text-transform: uppercase;
 }
+
+/* jobs details styling  */
+.companyDetails {
+    margin-top: -10%;
+}
+
+.jobBasic-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.jobCompanyLogo {
+    height: 10rem;
+    width: 12rem;
+    margin: 3% 5%;
+}
+
+.jobCompanyTitle {
+    margin: -3% auto 7%;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+}
+
+.details {
+    text-transform: capitalize;
+    margin: 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details h5 span {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.details h5 {
+    display: flex;
+    justify-content: center;
+}
+
+.details h5 p,
+.jobCompanyLanguage li {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.jobCompanyLanguage {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    list-style-type: none;
+}
+
+.jobCompanyLink {
+    width: 10%;
+    margin: 2% 5%;
+    text-decoration: none;
+    color: #059669;
+    font-weight: 600;
+    background-color: #e7f3ef;
+    border: none;
+    border-radius: 2rem;
+    padding: .3rem .6rem;
+    transition: all 1.2s;
+    text-transform: capitalize;
+}
+
+.education {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    margin-top: 3%;
+    margin-left: 5%;
+    font-size: 1.0rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.education-ul {
+    margin: 0 5%;
+    list-style-type: none;
+}
+
+.education-ul li::before,
+.jobDetailsArticle::before {
+    content: '\f0a4';
+    font-family: 'FontAwesome';
+    color: #059669;
+}
+
+.jobCompanyDescription {
+    margin: 2% 5%;
+}
+
+.jobCompanyDescription span {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.jobDetailsArticle {
+    margin: 0% 7%;
+}

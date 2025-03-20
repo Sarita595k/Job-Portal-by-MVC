@@ -1,8 +1,8 @@
-const { fetchAllJobs } = require("../model/model")
+const { fetchAllJobs, getJobById } = require("../model/model")
 const { getJobSeeker, addJobSeekerInList } = require("../model/registeredJobSeeker")
 const { getRecruiterList, addRecruiters, recruiterExist } = require('../model/recruiterModel')
 const { validationResult } = require('express-validator')
-const e = require("express")
+const express = require("express")
 
 const fetchMainPage = (req, res) => {
     const getAllJobsList = fetchAllJobs()
@@ -21,6 +21,16 @@ const jobseeker = (req, res) => {
 // to view job details
 const viewJobDetails = (req, res) => {
     res.render('jobDetails')
+}
+
+// view a specfic job 
+const viewJob = (req, res) => {
+    const query = parseInt(req.params.id)
+    const jobs = getJobById(query)
+    if (!jobs) {
+        return res.status(404).send("Job not found");
+    }
+    res.render('jobDetails', { job: jobs })
 }
 
 // to view apply now page
@@ -62,7 +72,7 @@ const getRecruiterDetails = (req, res) => {
 const postRecruiterRegister = (req, res) => {
     const response = req.body
     const data = addRecruiters(response)
-    res.json({ msg: "thank you for registering" })
+    res.render('dashboard')
 }
 
 const checkRecruiterExist = (req, res) => {
@@ -70,7 +80,7 @@ const checkRecruiterExist = (req, res) => {
     console.log({ email, password })
     const response = recruiterExist({ email, password })
     if (response) {
-        res.json("you are logged in")
+        res.render("dashboard")
     } else {
         res.json('try again')
     }
@@ -78,5 +88,5 @@ const checkRecruiterExist = (req, res) => {
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker
     , jobseeker, getRecruiterPage, getRecruiterLogin,
-    getRecruiterDetails, postRecruiterRegister, checkRecruiterExist
+    getRecruiterDetails, postRecruiterRegister, checkRecruiterExist, viewJob
 }

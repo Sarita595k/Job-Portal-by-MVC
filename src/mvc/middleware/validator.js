@@ -22,4 +22,8 @@ const validateData = [
     }
 ]
 
+//validation for recruiter registration page 
+
 module.exports = { validateData }
+
+
