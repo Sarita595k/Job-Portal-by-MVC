@@ -24,6 +24,22 @@ const validateData = [
 
 //validation for recruiter registration page 
 
-module.exports = { validateData }
+const validateRecruiterDate = [
+    body('fullname').trim().isLength({ min: 3 }).withMessage('Name should not be empty and should contain three characters'),
+    body('company').trim().isLength({ min: 3 }).withMessage('company name should not be empty'),
+    body('website').trim().notEmpty().withMessage('Website link should not be empty and contain atleast three charaters'),
+    body('email').trim().isEmail().withMessage('enter a valid email address'),
+    body('phone').trim().isLength({ min: 10, max: 10 }).withMessage("phone number should contain 10 digits")
+        .isNumeric().withMessage("enter digit only"),
+    body('password').isLength({ min: 6 }).withMessage('Password should 6characters long'),
+    (req, res, next) => {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            res.render('recruiterRegister', { errors: errors.array() })
+        }
+        next()
+    }
+]
+module.exports = { validateData, validateRecruiterDate }
 
 

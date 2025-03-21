@@ -10,6 +10,17 @@
 <body>
     <div class="reg-page-bg-container">
         <%- include('partials/navbar')%>
+            <div class="errors-list">
+                <% if(errors && errors.length>0){%>
+                    <ul>
+                        <% errors.forEach(error=>{%>
+                            <li>
+                                <%=error.msg%>
+                            </li>
+                            <%})%>
+                    </ul>
+                    <%}%>
+            </div>
             <!-- <form action="./recruiterRegister.ejs" method="post" enctype="multipart/form-data"> -->
             <div class="form-container"></div>
             <form class="reg-page-form" action="/recruiterLogin" method="post">

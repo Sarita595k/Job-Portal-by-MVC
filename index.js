@@ -5,9 +5,9 @@ const multer = require("multer")
 const { fetchMainPage, allJobsAre, viewJobDetails,
     applyForJob, postRegistrationOfJobSeeker, jobseeker,
     getRecruiterPage, getRecruiterLogin, getRecruiterDetails,
-    postRecruiterRegister, checkRecruiterExist, viewJob }
+    postRecruiterRegister, checkRecruiterExist, viewJob, getDashboardPage }
     = require('./src/mvc/controller/controller')
-const { validateData } = require('./src/mvc/middleware/validator')
+const { validateData, validateRecruiterDate } = require('./src/mvc/middleware/validator')
 const { upload } = require('./src/mvc/middleware/fileUpload')
 const app = express()
 
@@ -71,9 +71,11 @@ app.get('/recruiterLogin', getRecruiterLogin)
 
 app.get('/recruiterDetails', getRecruiterDetails)
 
-app.post('/recruiterRegister', postRecruiterRegister)
+app.post('/recruiterRegister', validateRecruiterDate, postRecruiterRegister)
 
 app.post('/recruiterLogin', checkRecruiterExist)
+
+app.get('/dashboard', getDashboardPage)
 app.listen(3000, () => {
     console.log("server is running at port 3000")
 })

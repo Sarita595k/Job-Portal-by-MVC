@@ -2,7 +2,7 @@ const { fetchAllJobs, getJobById } = require("../model/model")
 const { getJobSeeker, addJobSeekerInList } = require("../model/registeredJobSeeker")
 const { getRecruiterList, addRecruiters, recruiterExist } = require('../model/recruiterModel')
 const { validationResult } = require('express-validator')
-const express = require("express")
+// const express = require("express")
 
 const fetchMainPage = (req, res) => {
     const getAllJobsList = fetchAllJobs()
@@ -57,11 +57,15 @@ const postRegistrationOfJobSeeker = (req, res) => {
 
 // for recruiter page controller is 
 const getRecruiterPage = (req, res) => {
-    res.render('recruiterRegister')
+    res.render('recruiterRegister', { errors: [] })
 }
 
 const getRecruiterLogin = (req, res) => {
-    res.render('recruiterLogin')
+    res.render('recruiterLogin', { errors: [] })
+}
+
+const getDashboardPage = (req, res) => {
+    res.render('dashboard')
 }
 
 // for getting details of all the recruiters 
@@ -71,22 +75,27 @@ const getRecruiterDetails = (req, res) => {
 }
 const postRecruiterRegister = (req, res) => {
     const response = req.body
-    const data = addRecruiters(response)
-    res.render('dashboard')
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.render('recruiterRegister', { errors: errors.array() })
+    }
+    addRecruiters(response)
+    const id = parseInt(req.params.id)
+    res.redirect('/dashboard')
 }
 
 const checkRecruiterExist = (req, res) => {
     const { email, password } = req.body
     console.log({ email, password })
     const response = recruiterExist({ email, password })
-    if (response) {
-        res.render("dashboard")
-    } else {
-        res.json('try again')
+    if (!response) {
+        res.redirect('/recruiterLogin', { errors: [{ msg: "invalid credentials" }] })
     }
+    res.redirect("/dashboard")
 }
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker
     , jobseeker, getRecruiterPage, getRecruiterLogin,
     getRecruiterDetails, postRecruiterRegister, checkRecruiterExist, viewJob
+    , getDashboardPage
 }
