@@ -1,6 +1,8 @@
-const { fetchAllJobs, getJobById } = require("../model/model")
+const { fetchAllJobs, getJobById, addJobDetailsToList } = require("../model/model")
 const { getJobSeeker, addJobSeekerInList } = require("../model/registeredJobSeeker")
-const { getRecruiterList, addRecruiters, recruiterExist } = require('../model/recruiterModel')
+const { getRecruiterList, addRecruiters,
+    recruiterExist, ifEmailAndCompanyExists,
+    getRecruiterById } = require('../model/recruiterModel')
 const { validationResult } = require('express-validator')
 // const express = require("express")
 
@@ -73,29 +75,55 @@ const getRecruiterDetails = (req, res) => {
     const data = getRecruiterList()
     res.json(data)
 }
+
 const postRecruiterRegister = (req, res) => {
     const response = req.body
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
         return res.render('recruiterRegister', { errors: errors.array() })
     }
-    addRecruiters(response)
-    const id = parseInt(req.params.id)
-    res.redirect('/dashboard')
+    const recruiterDetailsExists = ifEmailAndCompanyExists(response)
+    if (recruiterDetailsExists) {
+        return res.render('recruiterRegister', { errors: [{ msg: 'Details already exists' }] })
+    }
+    const newRecruiter = addRecruiters(response)
+    if (!newRecruiter) {
+        return res.render('recruiterRegister', { errors: [{ msg: "Invalid details" }] })
+    }
+    // const id = parseInt(req.params.id)
+    res.redirect(`/dashboard/${newRecruiter.id}`)
 }
 
 const checkRecruiterExist = (req, res) => {
     const { email, password } = req.body
-    console.log({ email, password })
     const response = recruiterExist({ email, password })
     if (!response) {
-        res.redirect('/recruiterLogin', { errors: [{ msg: "invalid credentials" }] })
+        return res.render('recruiterLogin', { errors: [{ msg: "invalid credentials" }] })
     }
-    res.redirect("/dashboard")
+    // const getRecruiter = parseInt(req.params.id)
+    // const recruiter = getRecruiterById(getRecruiter)
+    // if (!recruiter) {
+    //     return res.redirect('/recruiterRegister', { errors: [{ msg: "Invalid details" }] })
+    // }
+    // const id = parseInt(req.params.id)
+    res.redirect(`/dashboard/${response.id}`)
+}
+
+const logoutPage = (req, res) => {
+    res.redirect('/recruiterLogin')
+}
+
+// when recruiter add jobs 
+const addJobDetails = (req, res) => {
+    const response = req.body
+    const newJob = addJobDetailsToList()
+    console.log(newJob)
+    res.json('job added successfully')
+
 }
 module.exports = {
     fetchMainPage, allJobsAre, viewJobDetails, applyForJob, postRegistrationOfJobSeeker
     , jobseeker, getRecruiterPage, getRecruiterLogin,
     getRecruiterDetails, postRecruiterRegister, checkRecruiterExist, viewJob
-    , getDashboardPage
+    , getDashboardPage, logoutPage, addJobDetails
 }

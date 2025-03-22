@@ -291,17 +291,18 @@ const jobsList = [{
 const fetchAllJobs = () => {
     return jobsList
 }
-// const allJobs = () => {
-//     const jobsId = jobsList.length > 0 ? Math.max(...jobsList.map(jobs => jobs.id)) + 1 : 1
-//     const newJobsAre = [...jobsList, jobsId]
-//     jobsList.push(newJobsAre)
-//     return newJobsAre
-// }
+const addJobDetailsToList = () => {
+    const jobsId = jobsList.length > 0 ? Math.max(...jobsList.map(jobs => jobs.id)) + 1 : 1
+    const newJobsAre = [...jobsList, jobsId]
+    jobsList.push(newJobsAre)
+    console.log(newJobsAre)
+    return newJobsAre
+}
 
 const getJobById = (id) => {
     return jobsList.find(job =>
         job.id == id)
 }
 module.exports = {
-    fetchAllJobs, getJobById
+    fetchAllJobs, getJobById, addJobDetailsToList
 }

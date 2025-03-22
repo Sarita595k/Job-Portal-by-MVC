@@ -7,8 +7,14 @@
 
 <body>
     <%- include('partials/navbar')%>
+        <button class="submit-reg-form" type="submit"><a href="/logout">Logout</a></button>
+        <h1>welcome to your dashboard</h1>
         <h1>Add job details</h1>
-        <button class="submit-reg-form" type="submit"><a href="./recruiterLogin">Logout</a></button>
+        <form action="/addJobDetails" method="post">
+            <input type="text" name='company' placeholder="add company name">
+            <button>submit</button>
+        </form>
+
 </body>
 
 </html>

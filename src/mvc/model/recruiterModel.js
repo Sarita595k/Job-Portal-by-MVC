@@ -10,10 +10,19 @@ const addRecruiters = (recruiterDetails) => {
     return newRecruiter
 }
 
+const ifEmailAndCompanyExists = (data) => {
+    const companyAndEmail = recruiters.find(details =>
+        details.email === data.email || details.company === data.comapany || details.website === data.website) || null
+    return companyAndEmail
+}
 const recruiterExist = ({ email, password }) => {
     const exists = recruiters.find(recruiter =>
         recruiter.email == email && recruiter.password == password
     ) || null
     return exists
 }
-module.exports = { getRecruiterList, addRecruiters, recruiterExist }
+
+const getRecruiterById = (id) => {
+    return recruiters.find(recId => recId.id == id)
+}
+module.exports = { getRecruiterList, addRecruiters, recruiterExist, ifEmailAndCompanyExists, getRecruiterById }
