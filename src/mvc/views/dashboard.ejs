@@ -8,11 +8,48 @@
 <body>
     <%- include('partials/navbar')%>
         <button class="submit-reg-form" type="submit"><a href="/logout">Logout</a></button>
-        <h1>welcome to your dashboard</h1>
-        <h1>Add job details</h1>
-        <form action="/addJobDetails" method="post">
-            <input type="text" name='company' placeholder="add company name">
-            <button>submit</button>
+        <div class="form-container"></div>
+
+        <form class="reg-page-form" action="/recruiterRegister" method="post">
+            <h1 class="form-heading">welcome to your dashboard</h1>
+            <h1 class="form-heading">Add job details</h1>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="companyName">company Name:</label>
+                    <input type="text" name="company" id="companyName">
+                </div>
+            </div>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="cdesignation">designation</label>
+                    <input type="text" name="designation" id="cdesignation">
+                </div>
+            </div>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="cpackage">package</label>
+                    <input type="text" name="package" id="cpackage">
+                </div>
+            </div>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="clanguage">required languages</label>
+                    <input type="text" name="language" id="clanguage">
+                </div>
+            </div>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="ceductaion">qualification:</label>
+                    <input type="tel" name="education" id="ceductaion">
+                </div>
+            </div>
+            <div class="name" id="name-container">
+                <div class="label-container">
+                    <label for="cdescription">job description:</label>
+                    <input type="text" name="description" id="cdescription">
+                </div>
+            </div>
+            <button class="submit-reg-form" type="submit"><a href="applicationSubmitted">save</a></button>
         </form>
 
 </body>

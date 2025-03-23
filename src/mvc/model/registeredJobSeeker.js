@@ -12,4 +12,4 @@ const addJobSeekerInList = (data) => {
 }
 
 
-module.exports = { getJobSeeker, addJobSeekerInList, ifEmailAndCompanyExists }
+module.exports = { getJobSeeker, addJobSeekerInList }

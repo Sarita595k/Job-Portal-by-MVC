@@ -6,9 +6,9 @@ const { fetchMainPage, allJobsAre, viewJobDetails,
     applyForJob, postRegistrationOfJobSeeker, jobseeker,
     getRecruiterPage, getRecruiterLogin, getRecruiterDetails,
     postRecruiterRegister, checkRecruiterExist,
-    viewJob, getDashboardPage, logoutPage, addJobDetails }
+    viewJob, getDashboardPage, logoutPage, addJobDetails, getApplicationPage }
     = require('./src/mvc/controller/controller')
-const { validateData, validateRecruiterDate } = require('./src/mvc/middleware/validator')
+const { validateData, validateRecruiterData } = require('./src/mvc/middleware/validator')
 const { upload } = require('./src/mvc/middleware/fileUpload')
 const app = express()
 
@@ -73,12 +73,13 @@ app.get('/recruiterLogin', getRecruiterLogin)
 
 app.get('/recruiterDetails', getRecruiterDetails)
 
-app.post('/recruiterRegister', validateRecruiterDate, postRecruiterRegister)
+app.post('/recruiterRegister', validateRecruiterData, postRecruiterRegister)
 
 app.post('/recruiterLogin', checkRecruiterExist)
 
 app.get('/dashboard/:id', getDashboardPage)
 
+app.get('/applicationSubmitted', getApplicationPage)
 app.get('/logout', logoutPage)
 app.listen(3000, () => {
     console.log("server is running at port 3000")

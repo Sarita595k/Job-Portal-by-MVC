@@ -24,7 +24,7 @@ const validateData = [
 
 //validation for recruiter registration page 
 
-const validateRecruiterDate = [
+const validateRecruiterData = [
     body('fullname').trim().isLength({ min: 3 }).withMessage('Name should not be empty and should contain three characters'),
     body('company').trim().isLength({ min: 3 }).withMessage('company name should not be empty'),
     body('website').trim().notEmpty().withMessage('Website link should not be empty and contain atleast three charaters'),
@@ -40,6 +40,6 @@ const validateRecruiterDate = [
         next()
     }
 ]
-module.exports = { validateData, validateRecruiterDate }
+module.exports = { validateData, validateRecruiterData }
 
 
