@@ -52,6 +52,7 @@ app.post('/jobSeekerRegister', upload.single('resume'), validateData, ((req, res
 }), postRegistrationOfJobSeeker)
 
 
+// jobseeker page 
 app.get('/jobseekerList', jobseeker)
 app.use((err, req, res, next) => {
     if (err instanceof multer.MulterError) {
