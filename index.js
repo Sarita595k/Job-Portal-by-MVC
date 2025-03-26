@@ -2,6 +2,7 @@ const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
 const multer = require("multer")
+const session = require('express-session')
 const { fetchMainPage, allJobsAre, viewJobDetails,
     applyForJob, postRegistrationOfJobSeeker, jobseeker,
     getRecruiterPage, getRecruiterLogin, getRecruiterDetails,
@@ -13,6 +14,7 @@ const { upload } = require('./src/mvc/middleware/fileUpload')
 const app = express()
 
 
+// session and cookies added 
 //setting view engine as ejs to display pages
 app.set('view engine', 'ejs')
 // setting the path of the views folder
