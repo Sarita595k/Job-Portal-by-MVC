@@ -71,11 +71,9 @@ const getRecruiterLogin = (req, res) => {
 const getDashboardPage = (req, res) => {
     const recruiterId = parseInt(req.params.id);
     const recruiter = getRecruiterById(recruiterId);
-
-    if (!recruiter) {
-        return res.status(404).render('error', { message: 'Recruiter not found' });
+    if (!recruiter || !req.session.user) {
+        return res.status(404).json({ message: 'Recruiter not found' });
     }
-
     res.render('dashboard', { recruiter });
 };
 
@@ -101,6 +99,7 @@ const postRecruiterRegister = (req, res) => {
         return res.render('recruiterRegister', { errors: [{ msg: "Invalid details" }] })
     }
     // const id = parseInt(req.params.id)
+    req.session.user = { id: newRecruiter.id, email: newRecruiter.email }
     return res.redirect(`/dashboard/${newRecruiter.id}`)
 }
 
@@ -108,13 +107,19 @@ const checkRecruiterExist = (req, res) => {
     const { email, password } = req.body
     const response = recruiterExist({ email, password })
     if (response) {
+        req.session.user = { id: response.id, email: response.email }
         return res.redirect(`/dashboard/${response.id}`)
     }
     return res.render('recruiterLogin', { errors: [{ msg: "invalid credentials" }] })
 }
 
 const logoutPage = (req, res) => {
-    res.redirect('/recruiterLogin')
+    req.session.destroy(err => {
+        if (err) {
+            return res.send("error in destroy session")
+        }
+        res.redirect('/recruiterLogin')
+    })
 }
 
 // when recruiter add jobs 
