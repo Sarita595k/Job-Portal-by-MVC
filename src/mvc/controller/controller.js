@@ -72,7 +72,7 @@ const getDashboardPage = (req, res) => {
     const recruiterId = parseInt(req.params.id);
     const recruiter = getRecruiterById(recruiterId);
     if (!recruiter || !req.session.user) {
-        return res.status(404).json({ message: 'Recruiter not found' });
+        return res.status(404).json({ message: 'you logged out.Plz, login again' });
     }
     res.render('dashboard', { recruiter });
 };
