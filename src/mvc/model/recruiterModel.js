@@ -9,6 +9,7 @@ const addRecruiters = (recruiterDetails) => {
     recruiters.push(newRecruiter)
     return newRecruiter
 }
+// check if email exists
 
 const ifEmailAndCompanyExists = (data) => {
     const companyAndEmail = recruiters.find(details =>
