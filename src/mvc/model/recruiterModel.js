@@ -3,6 +3,8 @@ const getRecruiterList = () => {
     return recruiters
 }
 
+// adding recruiters 
+
 const addRecruiters = (recruiterDetails) => {
     const id = recruiters.length > 0 ? Math.max(...recruiters.map(recruiter => recruiter.id)) + 1 : 1
     const newRecruiter = { id, ...recruiterDetails }
