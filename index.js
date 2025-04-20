@@ -74,6 +74,7 @@ app.get('/recruiterRegister', getRecruiterPage)
 
 app.get('/recruiterLogin', getRecruiterLogin)
 
+// recruiter details page 
 app.get('/recruiterDetails', getRecruiterDetails)
 
 app.post('/recruiterRegister', validateRecruiterData, postRecruiterRegister)

@@ -18,6 +18,7 @@ const ifEmailAndCompanyExists = (data) => {
         details.email === data.email || details.company === data.comapany || details.website === data.website) || null
     return companyAndEmail
 }
+// checking is recruiter is exist or not 
 const recruiterExist = ({ email, password }) => {
     const exists = recruiters.find(recruiter =>
         recruiter.email == email && recruiter.password == password
