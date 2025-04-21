@@ -1,3 +1,4 @@
+// all jobs list
 const jobsList = [{
     id: 1,
     imgSrc: 'https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png',
