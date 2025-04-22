@@ -289,9 +289,12 @@ const jobsList = [{
             'Ecommerce website design experience']
 }]
 
+// for fetching all jobs
 const fetchAllJobs = () => {
     return jobsList
 }
+
+// to add job in the job list 
 const addJobDetailsToList = () => {
     const jobsId = jobsList.length > 0 ? Math.max(...jobsList.map(jobs => jobs.id)) + 1 : 1
     const newJobsAre = [...jobsList, jobsId]
@@ -299,7 +302,7 @@ const addJobDetailsToList = () => {
     console.log(newJobsAre)
     return newJobsAre
 }
-
+// getting job by job id 
 const getJobById = (id) => {
     return jobsList.find(job =>
         job.id == id)
