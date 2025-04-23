@@ -64,10 +64,11 @@ const getRecruiterPage = (req, res) => {
     res.render('recruiterRegister', { errors: [] })
 }
 
+// to get recruiter login page 
 const getRecruiterLogin = (req, res) => {
     res.render('recruiterLogin', { errors: [] })
 }
-
+// to get the dashboard page 
 const getDashboardPage = (req, res) => {
     const recruiterId = parseInt(req.params.id);
     const recruiter = getRecruiterById(recruiterId);
