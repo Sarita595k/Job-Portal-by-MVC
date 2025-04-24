@@ -2,6 +2,7 @@ const express = require('express')
 const ejs = require('ejs')
 const path = require('path')
 const multer = require("multer")
+const bcrypt = require("bcrypt")
 const { expressSession } = require('./src/mvc/middleware/session')
 const { fetchMainPage, allJobsAre, viewJobDetails,
     applyForJob, postRegistrationOfJobSeeker, jobseeker,
