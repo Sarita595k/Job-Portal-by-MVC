@@ -71,9 +71,10 @@ app.use((err, req, res, next) => {
 })
 
 
-// recruiter page 
+// recruiter register page 
 app.get('/recruiterRegister', getRecruiterPage)
 
+// recruiter login page 
 app.get('/recruiterLogin', getRecruiterLogin)
 
 // recruiter details page 
