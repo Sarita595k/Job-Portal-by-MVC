@@ -86,6 +86,7 @@ app.post('/recruiterLogin', checkRecruiterExist)
 
 app.get('/dashboard/:id', getDashboardPage)
 
+// to retrive the application submitted form
 app.get('/applicationSubmitted', getApplicationPage)
 app.get('/logout', logoutPage)
 app.listen(3000, () => {
