@@ -85,6 +85,7 @@ const getRecruiterDetails = (req, res) => {
     res.json(data)
 }
 
+// post recruiter registration 
 const postRecruiterRegister = (req, res) => {
     const response = req.body
     const errors = validationResult(req)
